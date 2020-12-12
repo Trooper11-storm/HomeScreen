@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
 
 
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatelessWidget { //the entire homepage is a widget
   final String title;
 
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -33,7 +33,50 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
         backgroundColor: Colors.green,),
-      body: Center(child: Text('To be filled in...')),
+      body: Stack(
+        children: <Widget>[
+          Align(
+            alignment: Alignment(0,-0.75),
+            child: IconButton(
+              icon: Icon(Icons.local_florist),
+              iconSize: 100,
+              color: Colors.grey,
+              onPressed: () {},
+            )
+          ),
+          Align(
+              alignment: Alignment(0,-0.45),
+              child: Text('Plants', style: TextStyle(fontSize:28,
+                  fontWeight: FontWeight.bold),)),
+          Align(
+              alignment: Alignment.center,
+              child: IconButton(
+                icon: Icon(Icons.calendar_today),
+                iconSize: 100,
+                color: Colors.grey,
+                onPressed: () {},
+            )
+          ),
+          Align(
+              alignment: Alignment(0,0.2),
+              child: Text('Calendar', style: TextStyle(fontSize:28,
+                  fontWeight: FontWeight.bold))),
+          Align(
+            alignment: Alignment(0,0.75),
+            child: IconButton(
+              icon: Icon(Icons.notifications),
+              iconSize: 100,
+              color: Colors.grey,
+              onPressed: () {},
+            )
+          ),
+          Align(
+              alignment: Alignment(0,0.85),
+              child: Text('Notifications', style: TextStyle(fontSize:28,
+                  fontWeight: FontWeight.bold))),
+        ],
+      ),
+
       drawer: Drawer(
         // Add a ListView to the drawer. This ensures the user can scroll
         // through the options in the drawer if there isn't enough vertical
