@@ -41,7 +41,9 @@ class MyHomePage extends StatelessWidget { //the entire homepage is a widget
               icon: Icon(Icons.local_florist),
               iconSize: 100,
               color: Colors.grey,
-              onPressed: () {},
+              onPressed: () {
+                navigateToPlantPage(context);
+              },
             )
           ),
           Align(
@@ -116,7 +118,7 @@ class MyHomePage extends StatelessWidget { //the entire homepage is a widget
             ),
             ListTile(
               title: Text('Plant wish-list', style: TextStyle(fontSize: 15)),
-                leading: Icon(Icons.list, size: 40),
+                leading: Icon(Icons.shopping_basket, size: 40),
               onTap: () {
                 // Update the state of the app
                 // ...
@@ -166,6 +168,53 @@ class MyHomePage extends StatelessWidget { //the entire homepage is a widget
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+Future navigateToPlantPage(context) async {
+  Navigator.push(context, MaterialPageRoute(builder: (context) => PlantPage()));
+}
+
+
+class PlantPage extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Plants'),
+        backgroundColor: Colors.green,),
+      body: Stack(
+        children: <Widget>[
+          Align(
+              alignment: Alignment(0,-0.5),
+              child: IconButton(
+                icon: Icon(Icons.local_florist),
+                iconSize: 100,
+                color: Colors.grey,
+                onPressed: () {},
+              )
+          ),
+          Align(
+              alignment: Alignment(0,-0.25),
+              child: Text('My Plants', style: TextStyle(fontSize:28,
+                  fontWeight: FontWeight.bold),)),
+          Align(
+              alignment: Alignment(0,0.5),
+              child: IconButton(
+                icon: Icon(Icons.shopping_basket),
+                iconSize: 100,
+                color: Colors.grey,
+                onPressed: () {},
+              )
+          ),
+          Align(
+              alignment: Alignment(0,0.75),
+              child: Text('Plant Wish-list', style: TextStyle(fontSize:28,
+                  fontWeight: FontWeight.bold))),
+        ],
       ),
     );
   }
