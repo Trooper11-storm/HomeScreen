@@ -43,13 +43,23 @@ class MyHomePage extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-              child: Text('User',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25)),
               decoration: BoxDecoration(
                 color: Colors.green,
               ),
+              child: Stack(
+                children: <Widget>[
+                  Align(
+                    alignment:Alignment.centerLeft,
+                    child: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 35,
+                    )
+                  ),
+                  Align(
+                      alignment: Alignment.center,
+                      child: Text('User', style: TextStyle(color: Colors.white, fontSize:30)))
+                ]
+              )
             ),
             ListTile(
               title: Text('My plants',  style: TextStyle(fontSize: 15)),
